@@ -1,16 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP9</title>
-    <link rel="stylesheet" href="css/styless.css">
-</head>
-<body>
-    <h1 class="Titulo">PokeApp</h1>
-    <h3>Nuevo Proyecto de PokeApp</h3>
-    <img class="Pikachu" src="assets/img/Pikachu.webp" alt="Pokemon">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokeApp</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="header-logo" id="link-logo" aria-label="Volver al inicio">
+        <img src="./assets/img/logo-pokemon.svg" alt="Pokémon" />
+      </a>
 
-    <script src="js/script.js"></script>
-</body>
+      <nav class="header-nav" aria-label="Navegación principal">
+        <a href="#" id="link-inicio">Inicio</a>
+        <a href="#" id="link-pokedex">Pokédex</a>
+        <a href="#" id="link-login">Iniciar sesión</a>
+        <a href="#" id="link-registro">Registrarse</a>
+        <a href="#" id="link-juego">Batalla</a>
+      </nav>
+
+      <form class="header-search" id="form-busqueda">
+        <input type="search" id="busqueda" placeholder="Buscar Pokémon..." aria-label="Buscar Pokémon por nombre" />
+
+        <button type="submit" aria-label="Buscar">🔍</button>
+      </form>
+    </header>
+    <main class="main">
+      <div id="app"></div>
+    </main>
+
+    <footer class="footer">
+      <p>Pokédex Web - Proyecto educativo</p>
+
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+    <!-- <script type="module" src="./js/app_formularios.js"></script> -->
+  </body>
 </html>
