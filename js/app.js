@@ -390,6 +390,16 @@ function cargarBatalla() {
 
 function mostrarTurno(clave, elegido, rival) {
   const situacion = situacionesBatalla[clave];
+  const vidaPorTurno = {
+    inicio: [35, 100],
+    despuesDelAtaque: [30, 25],
+    despuesDeLaPocion: [75, 45],
+    victoria: [30, 0],
+    derrota: [0, 25],
+  };
+  const [vidaElegido, vidaRival] = vidaPorTurno[clave];
+  const hpElegido = Math.ceil(elegido.hp * vidaElegido / 100);
+  const hpRival = Math.ceil(rival.hp * vidaRival / 100);
 
   app.innerHTML = `
     <section class="batalla-section">
@@ -398,10 +408,14 @@ function mostrarTurno(clave, elegido, rival) {
         <figure>
           <img src="${escaparHTML(elegido.imagen)}" alt="" />
           <figcaption>Tu Pokémon: ${escaparHTML(elegido.nombre)}</figcaption>
+          <label for="vida-propia">HP: ${hpElegido} / ${elegido.hp}</label>
+          <progress id="vida-propia" max="${elegido.hp}" value="${hpElegido}" aria-label="Puntos de vida de tu Pokémon"></progress>
         </figure>
         <figure>
           <img src="${escaparHTML(rival.imagen)}" alt="" />
           <figcaption>Rival: ${escaparHTML(rival.nombre)}</figcaption>
+          <label for="vida-rival">HP: ${hpRival} / ${rival.hp}</label>
+          <progress id="vida-rival" max="${rival.hp}" value="${hpRival}" aria-label="Puntos de vida del rival"></progress>
         </figure>
       </div>
       <div class="battle-result">

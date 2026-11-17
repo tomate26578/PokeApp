@@ -3,6 +3,7 @@ import { usuariosDefecto } from "./db/usuarios.js";
 
 let bdPokemonesExiste = localStorage.getItem("pokemones");
 let bdUsuariosExiste = localStorage.getItem("usuarios");
+const versionLimpiezaUsuarios = "1";
 
 if (bdPokemonesExiste === null) {
   let pokemonesJson = JSON.stringify(pokemonesDefecto);
@@ -13,7 +14,11 @@ if (bdPokemonesExiste === null) {
   console.log("BD de pokemones existe en localStorage");
 }
 
-if (bdUsuariosExiste === null) {
+if (localStorage.getItem("versionLimpiezaUsuarios") !== versionLimpiezaUsuarios) {
+  localStorage.setItem("usuarios", JSON.stringify(usuariosDefecto));
+  localStorage.setItem("versionLimpiezaUsuarios", versionLimpiezaUsuarios);
+  console.log("Se limpiaron las cuentas anteriores y se restauró el administrador");
+} else if (bdUsuariosExiste === null) {
   let usuariosJson = JSON.stringify(usuariosDefecto);
   localStorage.setItem("usuarios", usuariosJson);
   console.log("BD de usuarios no existe, se crea en localStorage");

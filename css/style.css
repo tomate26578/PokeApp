@@ -507,6 +507,9 @@ body {
 }
 .batalla-equipo figure { flex: 1 1 120px; text-align: center; }
 .batalla-equipo img { width: 100%; max-width: 150px; height: 140px; object-fit: contain; }
+.batalla-equipo figure label { display: block; margin-top: 8px; font-weight: bold; }
+.batalla-equipo progress { width: min(100%, 220px); height: 18px; accent-color: #55a630; }
+.batalla-equipo progress[value="0"] { accent-color: #d62828; }
 .battle-result p { margin-top: 8px; }
 
 .login-section form, .registro-section form, .new-pokemon form, .batalla-section form {
